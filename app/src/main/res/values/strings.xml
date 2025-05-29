@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">InventarioAgro</string>
+    <string name="title_home">Início</string>
+    <string name="title_dashboard">Painel</string>
+    <string name="title_notifications">Notificações</string>
+
+    <!-- Menu Items -->
+    <string name="tipos">Tipos de Máquinas</string>
+    <string name="marcas">Marcas</string>
+    <string name="maquinas">Máquinas</string>
+
+    <!-- Actions -->
+    <string name="adicionar">Adicionar</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
+    <string name="salvar">Salvar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="sincronizar">Sincronizar</string>
+    <string name="buscar_servidor">Buscar do Servidor</string>
+    <string name="sincronizar_offline">Sincronizar Dados Offline</string>
+
+    <!-- Messages -->
+    <string name="confirmar_exclusao">Confirmar Exclusão</string>
+    <string name="deseja_excluir">Deseja realmente excluir este item?</string>
+    <string name="nome_obrigatorio">Nome é obrigatório</string>
+    <string name="sucesso_criacao">Item criado com sucesso</string>
+    <string name="sucesso_atualizacao">Item atualizado com sucesso</string>
+    <string name="sucesso_exclusao">Item excluído com sucesso</string>
+    <string name="erro_exclusao_dependencia">Não é possível excluir item com dependências associadas</string>
+
+    <!-- Machine Status -->
+    <string name="status_disponivel">Disponível</string>
+    <string name="status_negociacao">Em Negociação</string>
+    <string name="status_reservada">Reservada</string>
+    <string name="status_vendida">Vendida</string>
+
+    <!-- Form Fields -->
+    <string name="nome">Nome</string>
+    <string name="nome_marca">Nome da Marca</string>
+    <string name="descricao">Descrição</string>
+    <string name="descricao_tipo">Descrição do Tipo</string>
+    <string name="descricao_maquina">Descrição da Máquina</string>
+    <string name="ano_fabricacao">Ano de Fabricação</string>
+    <string name="valor">Valor</string>
+    <string name="proprietario">Nome do Proprietário</string>
+    <string name="nome_proprietario">Nome do Proprietário</string>
+    <string name="contato">Contato</string>
+    <string name="contato_proprietario">Contato do Proprietário</string>
+    <string name="comissao">% Comissão</string>
+    <string name="percentual_comissao">Percentual de Comissão</string>
+    <string name="status">Status</string>
+    <string name="filtrar">Filtrar</string>
+    <string name="limpar_filtros">Limpar Filtros</string>
+    <string name="erro_campos_vazios">Preencha todos os campos obrigatórios</string>
+</resources>

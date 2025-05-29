@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AgricultureInventory</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- Menu Items -->
+    <string name="maquinas">Machines</string>
+    <string name="tipos">Types</string>
+    <string name="marcas">Brands</string>
+
+    <!-- Actions -->
+    <string name="adicionar">Add</string>
+    <string name="editar">Edit</string>
+    <string name="excluir">Delete</string>
+    <string name="salvar">Save</string>
+    <string name="cancelar">Cancel</string>
+    <string name="sincronizar">Sync</string>
+    <string name="buscar_servidor">Fetch from Server</string>
+    <string name="sincronizar_offline">Sync Offline Data</string>
+
+    <!-- Messages -->
+    <string name="confirmar_exclusao">Confirm Deletion</string>
+    <string name="deseja_excluir">Do you really want to delete this item?</string>
+    <string name="nome_obrigatorio">Name is required</string>
+    <string name="sucesso_criacao">Item created successfully</string>
+    <string name="sucesso_atualizacao">Item updated successfully</string>
+    <string name="sucesso_exclusao">Item deleted successfully</string>
+    <string name="erro_exclusao_dependencia">Cannot delete item with associated dependencies</string>
+
+    <!-- Machine Status -->
+    <string name="status_disponivel">Available</string>
+    <string name="status_negociacao">In Negotiation</string>
+    <string name="status_reservada">Reserved</string>
+    <string name="status_vendida">Sold</string>
+
+    <!-- Form Fields -->
+    <string name="nome">Name</string>
+    <string name="nome_marca">Brand Name</string>
+    <string name="descricao">Description</string>
+    <string name="descricao_tipo">Type Description</string>
+    <string name="descricao_maquina">Machine Description</string>
+    <string name="ano_fabricacao">Manufacturing Year</string>
+    <string name="valor">Value</string>
+    <string name="proprietario">Owner Name</string>
+    <string name="nome_proprietario">Owner Name</string>
+    <string name="contato">Contact</string>
+    <string name="contato_proprietario">Owner Contact</string>
+    <string name="comissao">% Commission</string>
+    <string name="percentual_comissao">Commission Percentage</string>
+    <string name="status">Status</string>
+    <string name="filtrar">Filter</string>
+    <string name="limpar_filtros">Clear Filters</string>
+    <string name="erro_campos_vazios">Please fill all required fields</string>
+</resources>

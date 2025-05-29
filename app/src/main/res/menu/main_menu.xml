@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<item
+        android:id="@+id/action_fetch_server"
+        android:title="@string/buscar_servidor"
+        android:icon="@android:drawable/ic_menu_upload"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_sync_offline"
+        android:title="@string/sincronizar_offline"
+        android:icon="@android:drawable/ic_popup_sync"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="Configurações"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_tipos"
+        android:title="@string/tipos"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_marcas"
+        android:title="@string/marcas"
+        android:orderInCategory="200"
+        app:showAsAction="never" />
+</menu>
