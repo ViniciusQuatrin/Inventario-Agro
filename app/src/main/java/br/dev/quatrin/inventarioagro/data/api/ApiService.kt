@@ -49,7 +49,7 @@ interface ApiService {
     suspend fun getMaquinas(
         @Query("valorDe") valorDe: Double? = null,
         @Query("valorAte") valorAte: Double? = null,
-        @Query("status") status: String? = null,
+        @Query("status") status: StatusMaquina? = null,
         @Query("idTipo") idTipo: Long? = null,
         @Query("idMarca") idMarca: Long? = null
     ): Response<List<Maquina>>

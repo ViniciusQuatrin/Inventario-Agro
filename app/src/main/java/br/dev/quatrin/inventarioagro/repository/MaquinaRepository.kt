@@ -1,5 +1,6 @@
 package br.dev.quatrin.inventarioagro.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import br.dev.quatrin.inventarioagro.data.api.ApiService
 import br.dev.quatrin.inventarioagro.data.dao.MaquinaDao
@@ -12,6 +13,9 @@ class MaquinaRepository(
     private val maquinaDao: MaquinaDao,
     private val apiService: ApiService
 ) {
+    companion object {
+        private const val TAG = "MaquinaRepository"
+    }
 
     suspend fun inserir(maquina: Maquina) = maquinaDao.inserir(maquina)
 
@@ -35,7 +39,7 @@ class MaquinaRepository(
     suspend fun buscarMaquinasDoServidor(
         valorDe: Double? = null,
         valorAte: Double? = null,
-        status: String? = null,
+        status: StatusMaquina? = null,
         idTipo: Long? = null,
         idMarca: Long? = null
     ): Result<List<Maquina>> = withContext(Dispatchers.IO) {
@@ -61,7 +65,7 @@ class MaquinaRepository(
 
     suspend fun criarMaquina(maquina: Maquina): Result<Maquina> = withContext(Dispatchers.IO) {
         return@withContext try {
-            // SEMPRE salvar localmente PRIMEIRO (offline-first)
+            // salvar localmente PRIMEIRO (offline-first)
             val maquinaLocal = maquina.copy(id = 0) // ID será gerado pelo SQLite
             val novaId = maquinaDao.inserir(maquinaLocal)
             val maquinaSalva = maquinaLocal.copy(id = novaId)
@@ -78,18 +82,18 @@ class MaquinaRepository(
                     if (maquinaServidor != null) {
                         // Atualizar local com ID do servidor
                         maquinaDao.atualizar(maquinaSalva.copy(id = maquinaServidor.id))
-                        println("Máquina sincronizada com servidor: ID ${maquinaServidor.id}")
+                        Log.d(TAG, "Máquina sincronizada com servidor: ID ${maquinaServidor.id}")
                     }
                 } else {
-                    println("Erro ao sincronizar com servidor (${response.code()}), mas máquina salva localmente")
+                    Log.d(TAG, "Erro ao sincronizar com servidor (${response.code()}), mas máquina salva localmente")
                 }
             } catch (e: Exception) {
-                println("Erro de rede ao sincronizar, mas máquina salva localmente: ${e.message}")
+                Log.d(TAG, "Erro de rede ao sincronizar, mas máquina salva localmente: ${e.message}")
             }
 
             result
         } catch (e: Exception) {
-            println("Erro ao salvar máquina localmente: ${e.message}")
+            Log.d(TAG, "Erro ao salvar máquina localmente: ${e.message}")
             Result.failure(e)
         }
     }

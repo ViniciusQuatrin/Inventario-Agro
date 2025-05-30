@@ -30,18 +30,12 @@ class HomeFragment : Fragment() {
     
     private fun setupButtons() {
         binding.btnMaquinas.setOnClickListener {
-            // Por enquanto, apenas um exemplo. Futuramente, navegaremos para a lista de máquinas
-            // findNavController().navigate(R.id.maquinasFragment)
         }
         
         binding.btnTipos.setOnClickListener {
-            // Por enquanto, apenas um exemplo. Futuramente, navegaremos para a lista de tipos
-            // findNavController().navigate(R.id.tiposFragment)
         }
         
         binding.btnMarcas.setOnClickListener {
-            // Por enquanto, apenas um exemplo. Futuramente, navegaremos para a lista de marcas
-            // findNavController().navigate(R.id.marcasFragment)
         }
     }
 
