@@ -23,7 +23,6 @@ object RetrofitClient {
         setLevel(HttpLoggingInterceptor.Level.BODY)
     }
 
-    // Criar TrustManager que aceita todos os certificados (APENAS PARA TESTE!)
     private val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
         override fun checkClientTrusted(chain: Array<X509Certificate>, authType: String) {}
         override fun checkServerTrusted(chain: Array<X509Certificate>, authType: String) {}

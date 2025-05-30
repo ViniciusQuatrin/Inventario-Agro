@@ -3,9 +3,12 @@ package br.dev.quatrin.inventarioagro.service
 import android.app.IntentService
 import android.content.Intent
 import android.content.Context
+import android.util.Log
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import br.dev.quatrin.inventarioagro.data.api.RetrofitClient
 import br.dev.quatrin.inventarioagro.data.database.AppDatabase
+import br.dev.quatrin.inventarioagro.data.model.Marca
+import br.dev.quatrin.inventarioagro.data.model.TipoMaquina
 import br.dev.quatrin.inventarioagro.repository.TipoRepository
 import br.dev.quatrin.inventarioagro.repository.MarcaRepository
 import br.dev.quatrin.inventarioagro.repository.MaquinaRepository
@@ -16,6 +19,7 @@ import kotlinx.coroutines.launch
 class SyncService : IntentService("SyncService") {
 
     companion object {
+        private const val TAG = "SyncService"
         const val ACTION_FETCH_ALL = "action_fetch_all"
         const val ACTION_SYNC_OFFLINE = "action_sync_offline"
 
@@ -38,6 +42,7 @@ class SyncService : IntentService("SyncService") {
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onHandleIntent(intent: Intent?) {
         intent?.let {
             when (it.action) {
@@ -58,21 +63,21 @@ class SyncService : IntentService("SyncService") {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 // Buscar todos os dados do servidor
-                println("=== INICIANDO SINCRONIZAÇÃO ===")
+                Log.d(TAG, "=== INICIANDO SINCRONIZAÇÃO ===")
 
                 val tiposResult = tipoRepository.buscarTiposDoServidor()
-                println("Tipos Result: ${tiposResult.isSuccess} - ${tiposResult.getOrNull()?.size ?: 0} items")
+                Log.d(TAG, "Tipos Result: ${tiposResult.isSuccess} - ${tiposResult.getOrNull()?.size ?: 0} items")
 
                 val marcasResult = marcaRepository.buscarMarcasDoServidor()
-                println("Marcas Result: ${marcasResult.isSuccess} - ${marcasResult.getOrNull()?.size ?: 0} items")
+                Log.d(TAG, "Marcas Result: ${marcasResult.isSuccess} - ${marcasResult.getOrNull()?.size ?: 0} items")
                 if (marcasResult.isFailure) {
-                    println("Marcas Error: ${marcasResult.exceptionOrNull()?.message}")
+                    Log.d(TAG, "Marcas Error: ${marcasResult.exceptionOrNull()?.message}")
                 }
 
                 val maquinasResult = maquinaRepository.buscarMaquinasDoServidor()
-                println("Maquinas Result: ${maquinasResult.isSuccess} - ${maquinasResult.getOrNull()?.size ?: 0} items")
+                Log.d(TAG, "Maquinas Result: ${maquinasResult.isSuccess} - ${maquinasResult.getOrNull()?.size ?: 0} items")
                 if (maquinasResult.isFailure) {
-                    println("Maquinas Error: ${maquinasResult.exceptionOrNull()?.message}")
+                    Log.d(TAG, "Maquinas Error: ${maquinasResult.exceptionOrNull()?.message}")
                 }
 
                 val message = when {
@@ -91,7 +96,7 @@ class SyncService : IntentService("SyncService") {
                 sendBroadcast(BROADCAST_SYNC_COMPLETE, message)
 
             } catch (e: Exception) {
-                println("Erro geral na sincronização: ${e.message}")
+                Log.e(TAG, "Erro geral na sincronização: ${e.message}")
                 e.printStackTrace()
                 sendBroadcast(BROADCAST_SYNC_ERROR, "Erro na sincronização: ${e.message}")
             }
@@ -99,7 +104,7 @@ class SyncService : IntentService("SyncService") {
     }
 
     private fun handleSyncOffline() {
-        val message = "Sincronização offline em desenvolvimento"
+        val message = "Sincronização offline (não foi possível implementar)"
         sendBroadcast(BROADCAST_SYNC_COMPLETE, message)
     }
 

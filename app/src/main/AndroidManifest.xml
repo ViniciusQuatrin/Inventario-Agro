@@ -28,16 +28,19 @@
         <activity
             android:name=".ui.tipo.TipoListActivity"
             android:label="@string/tipos"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:parentActivityName=".MainActivity" />
 
         <activity
             android:name=".ui.marca.MarcaListActivity"
             android:label="@string/marcas"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:parentActivityName=".MainActivity" />
 
         <activity
             android:name=".ui.maquina.MaquinaListActivity"
             android:label="@string/maquinas"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:parentActivityName=".MainActivity" />
 
         <service
